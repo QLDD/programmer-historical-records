@@ -84,7 +84,7 @@ Array.isArray({}); // => fasle
 //4、concat()
 //5、slice()
 //6、splice()
-	//splice(): 数组中插入或删除元素的通用方法
+    //splice(): 数组中插入或删除元素的通用方法
     //第一个参数指定了插入或删除的起始位置
     //第二个参数指定了从起始位置删除元素的个数
     //后面的任意个数参数，都将从起始位置插入数组
@@ -97,14 +97,14 @@ Array.isArray({}); // => fasle
     arrayTest.splice(2, 0, 'a', 'b'); //返回[]; arrayTest 是[1, 2, 'a', 'b', 3, 4, 5]
     arrayTest.splice(2, 2, [1, 2], 3); //返回['a', 'b']; arrayTest 是[1, 2, [1, 2], 3, 3, 4, 5]
 //7、push() 和 pop()
-	let test = [];
+    let test = [];
     //push(): 在数组尾部插入一个或多个元素，返回数组新长度
     test.push('amazing'); 
     test.push('one', 'two');
-	//pop(): 删除数组的最后一个元素，减小数组长度并返回它删除的值
-	test.pop();
+    //pop(): 删除数组的最后一个元素，减小数组长度并返回它删除的值
+    test.pop();
 //8、unshift() 和 shift()
-	let test = [];
+    let test = [];
     //unshift(): 在数组头部插入一个或多个元素，返回数组新长度
     test.unshift('amazing');
     test.unshift('one', 'two');
