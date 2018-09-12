@@ -19,42 +19,52 @@ let str = test[0];
 
 ##### 3、属性
 
+- length
+
 ``` js
-//length
 let num = test.length;
 let num = [].length;
 ```
 
 ##### 4、添加和删除
 
+- delete: 删除指定元素的值，位置保留，值变为undefined
+
 ``` js
-//delete: 删除指定元素的值，位置保留，值变为undefined
 delete test[0];
-//push() 和 pop() ==> 8、数组方法里面有介绍
-//unshift() 和 shift() ==> 8、数组方法里面有介绍
-//splice() ==> 8、数组方法里面有介绍
 ```
+
+- push() 和 pop() ==> 8、数组方法里面有介绍
+- unshift() 和 shift() ==> 8、数组方法里面有介绍
+- splice() ==> 8、数组方法里面有介绍
 
 ##### 5、遍历
 
+- for
+
 ``` js
-//for
 let arrayTest = [1, 2, 3, 4, 5];
 for (let i = 0; i < arrayTest.length; i++) {
     let value = arrayTest[i];
     //可以break
     //可以continue
 }
-//for of 
+```
+
+- for of
+
+``` js
+let arrayTest = [1, 2, 3, 4, 5];
 for (let item of arrayTest) {
     let value = arrayTest[item];
     //可以break
     //可以continue
     //只读
 }
-//foreach() ==> 8、数组方法里面有介绍
-//map() ==> 8、数组方法里面有介绍
 ```
+
+- foreach() ==> 8、数组方法里面有介绍
+- map() ==> 8、数组方法里面有介绍
 
 ##### 6、作为数组的字符串
 
@@ -79,8 +89,20 @@ Array.isArray({}); // => fasle
 
 ``` js
 //1、join()
+	//将数组所有元素以分隔符的形式转化为字符串，不指定分隔符，默认为逗号
+	let arrayTest = [1, 2, 3];
+	arrayTest.join(); // => "1,2,3"
+	arrayTest.join(" "); // => "1 2 3"
+	arrayTest.join(""); // => "123"
+	let b = new Array(10);
+	b.join('-'); // => "---------" 9个
 //2、reverse()
+	//逆序
+	let a = [1, 2, 3];
+	a.reverse(); // => a 是 [3, 2, 1]  a 本身改变
 //3、sort()
+	//排序
+	
 //4、concat()
 //5、slice()
 //6、splice()
