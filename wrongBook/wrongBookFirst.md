@@ -1,10 +1,10 @@
-##### 1、Illegal invocation：非法援引
+### 1、Illegal invocation：非法援引
 
 ``` js
 //-- Vue --
 
 import MD5Methods from '../../../utils/MD5Methods';
-//获取文件的MD5值
+
 getMD5OfFile (e) {                        
     let file = e.target.files[0];            
     MD5Methods.md5File(file).then(e => {
@@ -13,16 +13,20 @@ getMD5OfFile (e) {
 },
 
 //-- js --
+    
 const SparkMD5 = require('spark-md5');
 const blobSlice = File.prototype.slice || File.prototype.mozSlice || File.prototype.webkitSlice;
+
 class MD5Methods {        
+    
     static async md5File (file) {
         return new Promise((resolve, reject) => {            
             let chunkSize = 2097152;
             let chunks = Math.ceil(file.size / chunkSize);
             let currentChunk = 0;
             let spark = new SparkMD5.ArrayBuffer();            
-            let fileReader = new FileReader(); 
+            let fileReader = new FileReader();
+            
             fileReader.onload = (e) => {                
                 spark.append(e.target.result);
                 currentChunk++;
@@ -33,16 +37,19 @@ class MD5Methods {
                     resolve(result);
                 }
             };
+            
             fileReader.onerror = () => {
                 reject('fileReader异常');                
             };
+            
             this.loadNext(currentChunk, chunkSize, file, fileReader);
         })
     }
+    
     static loadNext (currentChunk, chunkSize, file, fileReader) {
         let start = currentChunk * chunkSize;
-        let end = ((start + chunkSize) >= file.size) ? file.size : start + chunkSize;        	//blobSlice.call(file, start, end)为报错方法
-        fileReader.readAsArrayBuffer(blobSlice.call(file, start, end));                
+        let end = ((start + chunkSize) >= file.size) ? file.size : start + chunkSize;
+        fileReader.readAsArrayBuffer(blobSlice.call(file, start, end));//blobSlice.call(file, start, end)为报错方法                
     }
 }
 module.exports = MD5Methods;        
