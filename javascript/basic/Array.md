@@ -225,19 +225,33 @@ test.shift();
 - 2、map()
 
 ``` js
-//
+//将调用数组的每个元素传递给指定函数，并返回一个数组(包含该函数的返回值)，不修改调用的数组。
+a = [1, 2, 3];
+b = a.map(e => {return e * e;}); //b 是 [1, 4, 9]
 ```
 
 - 3、filter()
 
 ``` js
-//
+//将原数组通过函数筛选，返回新数组
+a = [5, 4, 3, 2, 1];
+b = a.filter(e => {return e < 3;}); // b 是 [2, 1]
+c = a.filter(e => {return e % 2 == 0;}); //c 是 [4, 2] 
 ```
 
 - 4、every() 和 some()
 
 ``` js
-//
+//every()：当且仅当所有元素都满足函数条件时，返回true，否则，返回false
+a = [1, 2, 3, 4, 5];
+a.every(e => {return e < 10;}); // => true
+a.every(e => {return e % 2 === 0;}); // => false
+//some()：元素中只要有至少一个满足函数条件时，返回true，否则，返回false
+a = [1, 2, 3, 4, 5];
+a.some(e => {return e % 2 === 0;}); // => true
+a.some(isNaN); // => false
+//注：一旦确定返回值后，就会停止遍历数组
+//注：空数组，every()返回true，some()返回false
 ```
 
 - 5、reduce() 和 reduceRight()
@@ -249,7 +263,14 @@ test.shift();
 - 6、indexOf() 和 lastIndexOf()
 
 ``` js
-//
+//indexOf()：从头开始搜索具有给定值的元素，找到则返回找到第一个元素的索引，没有则返回-1
+//第二个参数可选，为指定开始搜索的索引。
+a = [0, 1, 2, 1, 0];
+a.indexOf(1); // => 1
+a.lastIndexOf(1); // => 3
+a.indexOf(3); // => -1
+//lastIndexOf()：从尾开始搜索具有给定值的元素，找到则返回找到第一个元素的索引，没有则返回-1
+//第二个参数可选，为指定开始搜索的索引，可以为负数，代表相对数组末尾的偏移量
 ```
 
 
