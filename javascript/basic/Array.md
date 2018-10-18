@@ -219,7 +219,14 @@ test.shift();
 - 1、forEach()
 
 ``` js
-//
+//从头至尾遍历数组，为每个元素调用指定函数
+//函数有3个参数，分别为：数组元素、元素的索引、数组本身
+let a = [1, 2, 3, 4, 5];
+let sum = 0;
+a.forEach(v => {sum += v;});
+console.log(sum); // => 15
+a.forEach((v, i, b) => {b[i] = v + 1;}); // a => [2, 3, 4, 5, 6]
+//forEach()无法终止,若要终止，放在try块中
 ```
 
 - 2、map()
